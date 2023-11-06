@@ -25,7 +25,7 @@ Key Features:
 1. Clone this repository to your local machine.
 
    ```bash
-   git clone https://github.com/marcaltea2/employee-records.git
+   git clone https://github.com/marcaltea2/SugarTech-Technical-Exam-.git
 
 2. change your working directory to the project folder
 
