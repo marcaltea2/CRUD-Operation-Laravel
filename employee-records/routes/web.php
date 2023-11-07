@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function (){
     Route::get('/login', 'login')->name('login')->middleware(['guest', 'prevent-back-history']); // This route is used to get user login information
     Route::post('/login/process', 'process'); // This route is used to validate user login information
-    Route::get('/register', 'register')->middleware('prevent-back-history'); // This route is used to get user registration information
+    Route::get('/register', 'register')->middleware(['guest', 'prevent-back-history']); // This route is used to get user registration information
     Route::post('/store', 'store'); // This route is used to validate and store to database the user registration information
     Route::post('/logout', 'logout'); // This route is used to logout user
 });
