@@ -42,10 +42,34 @@
 
             <tbody>
                 <tr class="bg-white border-b">
-                    <td class="py-4 px-6 font-semibold text-green-500">{{ $data['genderData']->where('gender', 'Male')->first()->gender_count }}</td>
-                    <td class="py-4 px-6 font-semibold text-green-500">{{ $data['genderData']->where('gender', 'Female')->first()->gender_count }}</td>
-                    <td class="py-4 px-6 font-semibold text-green-500">{{ round($data['averageAge']) }}</td>
-                    <td class="py-4 px-6 font-semibold text-green-500">₱{{ number_format($data['totalMonthlySalary'], 2) }}</td>
+                    <td class="py-4 px-6 font-semibold text-green-500">
+                        @if (isset($data['genderData']) && $data['genderData']->where('gender', 'Male')->first())
+                            {{ $data['genderData']->where('gender', 'Male')->first()->gender_count }}
+                        @else
+                            0
+                        @endif
+                    </td>
+                    <td class="py-4 px-6 font-semibold text-green-500">
+                        @if (isset($data['genderData']) && $data['genderData']->where('gender', 'Female')->first())
+                            {{ $data['genderData']->where('gender', 'Female')->first()->gender_count }}
+                        @else
+                            0
+                        @endif
+                    </td>
+                    <td class="py-4 px-6 font-semibold text-green-500">
+                        @if (isset($data['averageAge']))
+                            {{ round($data['averageAge']) }}
+                        @else
+                            0
+                        @endif
+                    </td>
+                    <td class="py-4 px-6 font-semibold text-green-500">
+                        @if (isset($data['totalMonthlySalary']))
+                            ₱{{ number_format($data['totalMonthlySalary'], 2) }}
+                        @else
+                            0.00
+                        @endif
+                    </td>
                 </tr>
             </tbody>
         </table>
